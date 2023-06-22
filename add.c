@@ -16,7 +16,7 @@ void add(stack_t **stack, unsigned int line_number)
 	stack_t *ptr, *ptr2;
 	int top_value, next_value, result;
 
-	if (stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		/*and exit with the status EXIT_FAILURE")*/
@@ -25,6 +25,7 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	ptr = *stack;
 	ptr2 = ptr->next;
+
 	top_value = ptr->n;
 	next_value = ptr2->n;
 

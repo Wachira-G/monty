@@ -15,5 +15,6 @@ void pint(__attribute__((unused)) stack_t **stack, unsigned int line_number)
 		flagged = 1;
 		return;
 	}
-	printf("%d\n", (*stack)->n);
+	fprintf(stdout, "%d\n", (*stack)->n);
+	fflush(stdout);
 }
