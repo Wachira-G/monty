@@ -10,11 +10,19 @@ void pint(__attribute__((unused)) stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		/*exit sequence*/
 		flagged = 1;
 		return;
 	}
-	fprintf(stdout, "%d\n", (*stack)->n);
+
+	if ((*stack)->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		/*exit sequence*/
+		flagged = 1;
+		return;
+	}
+	fprintf(stdout, "%c\n", (*stack)->n);
 	fflush(stdout);
 }

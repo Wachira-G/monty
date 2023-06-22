@@ -30,7 +30,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	next_value = ptr2->n;
 	if (top_value == 0)
 	{
-		fprintf(stderr, "L%d: division by zero", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		/*and exit with the status EXIT_FAILURE")*/
 		flagged = 1;
 		return;
