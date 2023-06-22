@@ -1,5 +1,7 @@
 pall
-push ahmed
+push -1
+# paljdao
+#push ahmed
 pint
 push 1
 pint

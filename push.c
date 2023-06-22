@@ -25,7 +25,7 @@ void push(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	data_str = strtok(NULL, " \t\n\r");
 	/* process data here*/
-	if (isvalidint(data_str) == -1)
+	if (isvalidint(data_str) == -1 || data_str == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		/* exit sequence */
@@ -36,7 +36,7 @@ void push(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	long_data = strtol(data_str, &endptr, base);
 	data = (int) long_data;
-	/*printf("data_str is %s data is %d\n", data_str, data);*/
+	/* printf("data_str is %s data is %d\n", data_str, data); */
 
 	new_node->n = data;
 	new_node->next = *stack;
@@ -61,9 +61,15 @@ int isvalidint(char *data_str)
 
 	if (data_str == NULL)
 		return (-1);
+
+	errno = 0;   /* reset errno*/
+	if (*data_str == '-') /*check negative*/
+		data_str++;
+
 	data = strtol(data_str, &endptr, base);
 	if ((errno == ERANGE && (data == LONG_MAX || data == LONG_MIN))
-			|| errno == EINVAL)
+			|| errno == EINVAL
+			|| endptr == data_str)
 		return (-1);
 	/* Check for trailing characters after valid integer-*/
 	/*ensures that we reject strings like "123a" or "123 456 - */
