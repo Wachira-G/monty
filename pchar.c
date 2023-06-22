@@ -1,12 +1,15 @@
 #include "monty.h"
 
 /**
- * pint - prints the value at the top of the stackfollowed by a new line.
+ * pchar - prints the char at the top of the stack, followed by a new line.
+ * The integer stored at the top of the stack
+ *  is treated as the ascii value of the character to be printed.
+ * If the value is not in the ascii table (man ascii) print the error message
  *
  * @stack: pointer to the beginnig of the stack
  * @line_number: the current line number in file we are reading from
 */
-void pint(__attribute__((unused)) stack_t **stack, unsigned int line_number)
+void pchar(__attribute__((unused)) stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
