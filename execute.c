@@ -22,7 +22,7 @@ int execute(char *opcode, int line_number, stack_t **stack,
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub}, {"div", _div}, {"mul", mul}, {"mod", mod},
-		{"pchar", pchar}, /*{"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},*/
+		{"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
 		/*{"queue", queue}, {"stack", _stack},*/
 		{NULL, NULL}
 	};
